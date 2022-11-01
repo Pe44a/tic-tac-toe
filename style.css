@@ -1,6 +1,7 @@
 body {
     width: 100vw;
     height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .gameboard {
@@ -10,8 +11,11 @@ body {
 }
 
 .field {
-    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 200px;
     font-size: 200px;
-    border: 1px solid black;
+    border: 2px solid black;
+    border-collapse: collapse;
 }
