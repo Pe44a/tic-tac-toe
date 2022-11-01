@@ -1,0 +1,17 @@
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 600px;
+}
+
+.field {
+    width: 200px;
+    height: 200px;
+    font-size: 200px;
+    border: 1px solid black;
+}
