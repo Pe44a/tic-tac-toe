@@ -55,6 +55,8 @@ const Gameboard = (() => {
 const gameFlow = (() => {
     const player1 = Player('x');
     const player2 = Player('o');
+    const displayResult = document.querySelector('.result');
+
 
 
     const checkWin = (board, symbol) => {
@@ -71,7 +73,7 @@ const gameFlow = (() => {
         ) {
             result = `${symbol} player won`;
             Gameboard.toggleBoard();
-            console.log(result);
+            displayResult.textContent = result;
             return result;
         }
 
@@ -79,7 +81,7 @@ const gameFlow = (() => {
         if(board[0] !== '' & board[1] !== '' & board[2] !== '' & board[3] !== '' & 
            board[4] !== '' & board[5] !== '' & board[6] !== '' & board[7] !== '' & board[8] !== '' ) {
             result = `It's a draw`;
-            console.log(result);
+            displayResult.textContent = result;
             return result;
         }
     };
