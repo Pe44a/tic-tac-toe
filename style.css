@@ -19,3 +19,8 @@ body {
     border: 2px solid black;
     border-collapse: collapse;
 }
+
+.disable {
+    pointer-events:none
+
+}
