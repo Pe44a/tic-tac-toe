@@ -14,6 +14,13 @@ const Gameboard = (() => {
         });
     };
 
+    const reset = () => {
+        gameboard = ['','','','','','','',''];
+        render();
+        lastSymbol = null;
+        return {gameboard};
+    }
+
     const toggleBoard = () => {
         fields.forEach((field) => {
             field.classList.toggle('disable');
@@ -48,7 +55,9 @@ const Gameboard = (() => {
         field.addEventListener('click', addSymbol());
     });
 
-    return {toggleBoard};
+    return {toggleBoard,
+            reset
+        };
 
 })();
 
@@ -56,11 +65,12 @@ const gameFlow = (() => {
     const player1 = Player('x');
     const player2 = Player('o');
     const displayResult = document.querySelector('.result');
+    const resetButton = document.querySelector('#reset');
+    let result;
 
 
 
     const checkWin = (board, symbol) => {
-       let result;
 
         if((board[0] === symbol & board[1] === symbol & board[2] === symbol) ||
            (board[3] === symbol & board[4] === symbol & board[5] === symbol) ||
@@ -74,7 +84,7 @@ const gameFlow = (() => {
             result = `${symbol} player won`;
             Gameboard.toggleBoard();
             displayResult.textContent = result;
-            return result;
+            return {result};
         }
 
         //Checks if its a draw
@@ -82,10 +92,20 @@ const gameFlow = (() => {
            board[4] !== '' & board[5] !== '' & board[6] !== '' & board[7] !== '' & board[8] !== '' ) {
             result = `It's a draw`;
             displayResult.textContent = result;
-            return result;
+            return {result};
         }
     };
 
+
+    resetButton.addEventListener('click', () => {
+        Gameboard.reset();
+        //Only disables field when there have been a match
+        if(result) {
+        Gameboard.toggleBoard();
+    }
+        displayResult.textContent = ' ';
+        result = null;
+    });
 
     return {
         player1,
