@@ -26,6 +26,7 @@ input {
     justify-content: center;
     font-size: 35px;
     margin: 0.8rem;
+    height: 53px;
 }
 
 .gameboard-container {
@@ -52,4 +53,18 @@ input {
 .disable {
     pointer-events:none
 
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#reset {
+    font-size: 45px;
+    padding: 5px;
+    border: 4px solid black;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255);
 }
